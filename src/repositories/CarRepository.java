@@ -1,22 +1,3 @@
-/**
- * ▄█▀█▄
- * ▄█▀▀▀▀    ▀█▄▄▄▄▄▄▄
- * █▀                ▀█
- * ▀▄ ▄              ▄█
- * █████▄▄▄▄▄██▄▄▄█▀▀█
- * █▀█    ▀     ▀    █▀▀▀▀▀█
- * █ ███▄▄▄▄   ▄▄▄▄▄██▀▀██ █
- * █ ███ ████▀████ ███  █  █
- * █▄███ ████ ████ ███  █ █▀
- * ███ ████ ████ ███  █ █
- * ███ ████ ████ ███▄▄█ █
- * ███ ████ ████ ███   ▄█
- * ███ ████ ████ ███▀▀▀▀
- * ▄███▄████ ████▄███▄q
- * ███▀███████████▀███
- * ▀▀▀██▄▄▄▄▄██▀▀▀ф
- */
-
 package repositories;
 
 import java.sql.*;
@@ -24,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Car;
 
-public class CarRepository implements FindById<Car> {
     private final Connection connection;
 
     public CarRepository(Connection connection) {
@@ -63,7 +43,6 @@ public class CarRepository implements FindById<Car> {
         }
     }
 
-    @Override
     public Car findById(int id) {
         String sql = "SELECT * FROM cars WHERE id = ?";
 
