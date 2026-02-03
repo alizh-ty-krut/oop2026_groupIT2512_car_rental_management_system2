@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Car;
 
-public class CarRepository {
+public class CarRepository implements FindById<Car> {
     private final Connection connection;
 
     public CarRepository(Connection connection) {
@@ -63,6 +63,7 @@ public class CarRepository {
         }
     }
 
+    @Override
     public Car findById(int id) {
         String sql = "SELECT * FROM cars WHERE id = ?";
 

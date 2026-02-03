@@ -23,13 +23,14 @@ import java.sql.*;
 import java.time.LocalDate;
 import models.Rental;
 
-public class RentalRepository {
+public class RentalRepository implements Save<Rental>, FindById<Rental> {
     private final Connection connection;
 
     public RentalRepository(Connection connection) {
         this.connection = connection;
     }
 
+    @Override
     public void save(Rental rental) {
         String sql = "INSERT INTO rentals (car_id, customer_id, rental_date) VALUES (?, ?, ?)";
 
@@ -49,6 +50,7 @@ public class RentalRepository {
         }
     }
 
+    @Override
     public Rental findById(int id) {
         String sql = "SELECT * FROM rentals WHERE id = ?";
 

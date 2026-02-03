@@ -22,13 +22,14 @@ package repositories;
 import java.sql.*;
 import models.Payment;
 
-public class PaymentRepository {
+public class PaymentRepository implements Save<Payment> {
     private final Connection connection;
 
     public PaymentRepository(Connection connection) {
         this.connection = connection;
     }
 
+    @Override
     public void save(Payment payment) {
         String sql = "INSERT INTO payments (rental_id, amount) VALUES (?, ?)";
         try (PreparedStatement st = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {

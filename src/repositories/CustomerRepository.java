@@ -25,7 +25,7 @@ import java.util.List;
 
 import models.Customer;
 
-public class CustomerRepository {
+public class CustomerRepository implements FindById<Customer> {
     private final Connection connection;
     public CustomerRepository(Connection connection) {
         this.connection = connection;
@@ -46,6 +46,7 @@ public class CustomerRepository {
         }
     }
 
+    @Override
     public Customer findById(int id) {
         String sql = "SELECT * FROM customers WHERE id = ?";
         try (PreparedStatement st = connection.prepareStatement(sql)) {
