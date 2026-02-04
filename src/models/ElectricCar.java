@@ -38,4 +38,5 @@ public class ElectricCar extends Car {
 
         this.range = range;
     }
+    //
 }
