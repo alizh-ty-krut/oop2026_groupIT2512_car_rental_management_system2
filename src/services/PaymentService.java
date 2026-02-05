@@ -30,7 +30,6 @@ public class PaymentService {
         int amount = pricingService.calculatePrice(rental);
         Payment payment = new Payment(0, rentalId, amount);
         paymentRepository.save(payment);
-        // Make the car available again
         carRepository.updateAvailability(rental.getCarId(), true);
         System.out.println("Payment recorded for rental " + rentalId +
                 " with amount " + amount);
