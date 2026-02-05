@@ -23,6 +23,8 @@ import java.sql.*;
 import java.time.LocalDate;
 import models.Rental;
 
+public class RentalRepository {
+
     private final Connection connection;
 
     public RentalRepository(Connection connection) {
