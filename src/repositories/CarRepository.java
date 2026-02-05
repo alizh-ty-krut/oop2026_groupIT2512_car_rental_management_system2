@@ -24,6 +24,8 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Car;
 
+public class CarRepository {
+
     private final Connection connection;
 
     public CarRepository(Connection connection) {
