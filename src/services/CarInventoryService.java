@@ -14,4 +14,10 @@ public class CarInventoryService {
     public List<Car> getAvailableCars() {
         return carRepository.findAllAvailable();
     }
+
+    public void printInventoryLog() {
+        List<Car> cars = getAvailableCars();
+
+        cars.forEach(car -> System.out.println("Car available: " + car));
+    }
 }
