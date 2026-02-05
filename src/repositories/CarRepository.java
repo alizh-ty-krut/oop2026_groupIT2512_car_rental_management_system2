@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import models.Car;
 
-public class CarRepository {
+public class CarRepository implements FindById<Car> {
 
     private final Connection connection;
 

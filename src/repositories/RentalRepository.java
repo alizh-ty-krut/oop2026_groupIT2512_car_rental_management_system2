@@ -23,7 +23,7 @@ import java.sql.*;
 import java.time.LocalDate;
 import models.Rental;
 
-public class RentalRepository {
+public class RentalRepository implements FindById<Rental>, Save<Rental> {
 
     private final Connection connection;
 

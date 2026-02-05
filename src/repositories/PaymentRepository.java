@@ -4,7 +4,7 @@ import java.sql.*;
 import models.Payment;
 
 
-public class PaymentRepository {
+public class PaymentRepository implements Save<Payment> {
     private final Connection connection;
 
     public PaymentRepository(Connection connection) {
