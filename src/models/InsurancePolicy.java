@@ -13,9 +13,6 @@ public class InsurancePolicy {
     }
 
     public static InsurancePolicy getInstance() {
-        if (instance == null) {
-            instance = new InsurancePolicy();
-        }
         return instance;
     }
 
