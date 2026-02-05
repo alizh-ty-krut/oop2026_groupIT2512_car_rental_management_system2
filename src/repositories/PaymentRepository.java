@@ -11,7 +11,7 @@ public class PaymentRepository {
         this.connection = connection;
     }
 
-
+    @Override
     public void save(Payment payment) {
         String sql = "INSERT INTO payments (rental_id, amount) VALUES (?, ?)";
 

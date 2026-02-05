@@ -64,6 +64,7 @@ public class CarRepository {
         }
     }
 
+    @Override
     public Car findById(int id) {
         String sql = "SELECT * FROM cars WHERE id = ?";
 
