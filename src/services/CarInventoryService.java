@@ -19,5 +19,8 @@ public class CarInventoryService {
         List<Car> cars = getAvailableCars();
 
         cars.forEach(car -> System.out.println("Car available: " + car));
+        //for (Car car : cars) {
+        //    System.out.println("Car available: " + car);
+        //}
     }
 }
