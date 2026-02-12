@@ -22,7 +22,6 @@ public class ConsoleApp {
 
         CarInventoryService inventoryService = new CarInventoryService(carRepo);
         RentalService rentalService = new RentalService(carRepo, rentalRepo);
-
         PaymentService paymentService = new PaymentService(paymentRepo, rentalRepo, carRepo, pricingService);
 
         FleetComponent fleetComp = new FleetComponent(inventoryService);
@@ -39,6 +38,7 @@ public class ConsoleApp {
             System.out.println("2. Rent a Car");
             System.out.println("3. Return Car & Pay");
             System.out.println("4. Generate Reports");
+            System.out.println("5. Add a Car");
             System.out.println("0. Exit");
             System.out.print("Select an option: ");
 
@@ -50,18 +50,31 @@ public class ConsoleApp {
                     break;
                 case "2":
                     System.out.print("Enter Car ID: ");
-                    int carId = scanner.nextInt();
-                    System.out.print("Enter Customer ID: ");
-                    int custId = scanner.nextInt();
-                    rentalComp.rentCar(carId, custId);
+                    if (scanner.hasNextInt()) {
+                        int carId = scanner.nextInt();
+                        System.out.print("Enter Customer ID: ");
+                        int custId = scanner.nextInt();
+                        rentalComp.rentCar(carId, custId);
+                    } else {
+                        System.out.println("Invalid input. ID must be a number.");
+                        scanner.next();
+                    }
                     break;
                 case "3":
                     System.out.print("Enter Rental ID to close: ");
-                    int rentalId = scanner.nextInt();
-                    billingComp.processPayment(rentalId);
+                    if (scanner.hasNextInt()) {
+                        int rentalId = scanner.nextInt();
+                        billingComp.processPayment(rentalId);
+                    } else {
+                        System.out.println("Invalid input.");
+                        scanner.next();
+                    }
                     break;
                 case "4":
                     reportingComp.generateFleetReport();
+                    break;
+                case "5":
+                    fleetComp.promptAddCar(scanner);
                     break;
                 case "0":
                     running = false;
